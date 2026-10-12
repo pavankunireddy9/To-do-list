@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfect Planner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="logo">✓</span>
+        <div>
+          <h2>Perfect Planner</h2>
+          <small>Plan · Focus · Achieve</small>
+        </div>
+      </div>
+
+      <nav>
+        <button class="nav-btn active" data-view="today">⌂ Today <span id="todayCount">0</span></button>
+        <button class="nav-btn" data-view="upcoming">▦ Upcoming <span id="upcomingCount">0</span></button>
+        <button class="nav-btn" data-view="completed">☑ Completed <span id="completedCount">0</span></button>
+      </nav>
+
+      <div class="side-note">
+        <div class="note-icon">◎</div>
+        <h3>Small steps</h3>
+        <p>Every day is a new chance to make progress. Keep showing up.</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="welcome">
+        <div class="sun">☼</div>
+        <div>
+          <p id="fullDate" class="eyebrow"></p>
+          <h1 id="greeting">Good morning!</h1>
+          <p class="subtitle">A little progress each day adds up to big results.</p>
+        </div>
+      </header>
+
+      <form id="taskForm" class="add-panel">
+        <input id="taskInput" type="text"
+          placeholder="What would you like to get done?" required>
+
+        <input id="dueDate" type="date" aria-label="Due date">
+
+        <select id="category" aria-label="Category">
+          <option value="Work">Work</option>
+          <option value="Study">Study</option>
+          <option value="Personal">Personal</option>
+          <option value="Health">Health</option>
+        </select>
+
+        <select id="priority" aria-label="Priority">
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+          <option value="Low">Low</option>
+        </select>
+
+        <button class="add-btn" type="submit">+ Add Task</button>
+      </form>
+
+      <section class="tasks-section">
+        <div class="section-head">
+          <div>
+            <h2 id="listTitle">Today's Tasks</h2>
+            <p class="muted">One thing at a time.</p>
+          </div>
+
+          <div class="filters">
+            <button class="filter active" data-filter="all">All</button>
+            <button class="filter" data-filter="pending">Pending</button>
+            <button class="filter" data-filter="completed">Done</button>
+          </div>
+        </div>
+
+        <div id="taskList" class="task-list"></div>
+
+        <div id="emptyState" class="empty-state" hidden>
+          <div>✧</div>
+          <h3>Clear space, clear mind.</h3>
+          <p>No tasks here yet. Add one above to get started.</p>
+        </div>
+      </section>
+
+      <footer>Stay focused. Be kind to yourself. Repeat. ✦</footer>
+    </main>
+
+    <aside class="right-panel">
+      <section class="panel calendar-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">YOUR SCHEDULE</p>
+            <h2 id="monthLabel">Calendar</h2>
+          </div>
+          <div class="calendar-controls">
+            <button id="prevMonth" aria-label="Previous month">‹</button>
+            <button id="nextMonth" aria-label="Next month">›</button>
+          </div>
+        </div>
+
+        <div class="calendar-grid weekdays">
+          <span>Su</span><span>Mo</span><span>Tu</span>
+          <span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+        </div>
+        <div id="calendarDays" class="calendar-grid"></div>
+        <p class="calendar-hint">● Today &nbsp; • &nbsp; Dot = tasks due</p>
+      </section>
+
+      <section class="panel progress-panel">
+        <p class="eyebrow">KEEP IT UP</p>
+        <h2>Daily Progress</h2>
+
+        <div class="progress-summary">
+          <strong id="progressPercent">0%</strong>
+          <span id="progressCount">0 of 0 complete</span>
+        </div>
+
+        <div class="progress-track">
+          <div id="progressBar"></div>
+        </div>
+
+        <div class="stat">
+          <span><i class="dot green"></i> Completed</span>
+          <strong id="progressDone">0</strong>
+        </div>
+        <div class="stat">
+          <span><i class="dot blue"></i> Pending</span>
+          <strong id="progressPending">0</strong>
+        </div>
+        <div class="stat">
+          <span><i class="dot red"></i> Overdue</span>
+          <strong id="progressOverdue">0</strong>
+        </div>
+      </section>
+
+      <section class="panel quote-panel">
+        <div class="star">✦</div>
+        <h2>You've got this.</h2>
+        <p id="motivation">Focus on what you can do today. The rest can wait.</p>
+        <div class="accent-line"></div>
+      </section>
+    </aside>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
